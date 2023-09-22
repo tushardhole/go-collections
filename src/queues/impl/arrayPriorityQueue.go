@@ -1,30 +1,44 @@
 package collections
 
-import . "go-collections/src/common"
-
-type PriorityQueue interface {
-	Poll() Comparable
-	Add(Comparable)
-	Peek() Comparable
-	IsEmpty() bool
-	Size() int
-}
+import (
+	"errors"
+	"fmt"
+	. "go-collections/src/common/behaviours"
+	. "go-collections/src/common/types"
+	"reflect"
+)
 
 type PriorityQueueImpl struct {
-	heap []Comparable
+	heap     []Comparable
+	itemType reflect.Type
 }
 
 func (pq *PriorityQueueImpl) Size() int {
 	return len(pq.heap)
 }
 
-func NewPriorityQueue() PriorityQueue {
-	return &PriorityQueueImpl{}
+func NewPriorityQueue(itemType reflect.Type) PriorityQueue {
+	return &PriorityQueueImpl{itemType: itemType}
 }
 
-func (pq *PriorityQueueImpl) Add(item Comparable) {
+func (pq *PriorityQueueImpl) Add(item Comparable) error {
+	validationErr := pq.validate(item)
+	if validationErr != nil {
+		return validationErr
+	}
+
 	pq.heap = append(pq.heap, item)
 	pq.heapifyUp(len(pq.heap) - 1)
+
+	return nil
+}
+
+func (pq *PriorityQueueImpl) validate(item Comparable) error {
+	if pq.itemType != reflect.TypeOf(item) {
+		errorsMsg := fmt.Sprintf("extended type is not the same as the one used to create the queue, expected %s, got %s", pq.itemType, reflect.TypeOf(item))
+		return errors.New(errorsMsg)
+	}
+	return nil
 }
 
 func (pq *PriorityQueueImpl) heapifyUp(i int) {
