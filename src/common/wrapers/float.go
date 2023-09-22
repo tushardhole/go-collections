@@ -1,14 +1,14 @@
 package collections
 
 import (
-	"go-collections/src/common/behaviours"
+	. "go-collections/src/common/behaviours"
 )
 
 type ComparableFloat struct {
 	value float64
 }
 
-func (i ComparableFloat) CompareTo(other behaviours.Comparable) int {
+func (i ComparableFloat) CompareTo(other Comparable) int {
 	diff := i.value - other.(ComparableFloat).value
 	if diff > 0 {
 		return 1
@@ -23,6 +23,6 @@ func (i ComparableFloat) Value() float64 {
 	return i.value
 }
 
-func NewComparableFloat(value float64) behaviours.Comparable {
+func NewComparableFloat(value float64) Comparable {
 	return ComparableFloat{value: value}
 }
