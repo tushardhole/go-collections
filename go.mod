@@ -1,4 +1,4 @@
-module go-collections
+module github.com/tushardhole/go-collections
 
 go 1.20
 
