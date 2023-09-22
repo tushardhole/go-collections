@@ -1,7 +1,7 @@
 package collections
 
 import (
-	. "go-collections/src/common/behaviours"
+	. "github.com/tushardhole/go-collections/src/common/behaviours"
 )
 
 type ComparableInteger struct {

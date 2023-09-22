@@ -3,9 +3,10 @@ package collections
 import (
 	"errors"
 	"fmt"
-	. "go-collections/src/common/behaviours"
-	. "go-collections/src/common/types"
 	"reflect"
+
+	. "github.com/tushardhole/go-collections/src/common/behaviours"
+	. "github.com/tushardhole/go-collections/src/common/types"
 )
 
 type PriorityQueueImpl struct {

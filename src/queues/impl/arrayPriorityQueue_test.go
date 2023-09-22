@@ -1,10 +1,11 @@
 package collections
 
 import (
-	. "github.com/franela/goblin"
-	. "go-collections/src/common/wrapers"
 	"reflect"
 	"testing"
+
+	. "github.com/franela/goblin"
+	. "github.com/tushardhole/go-collections/src/common/wrapers"
 )
 
 func TestPriorityQueueImpl(t *testing.T) {
