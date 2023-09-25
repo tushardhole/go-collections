@@ -1,11 +1,11 @@
-package collections
+package queues
 
 import (
 	"reflect"
 	"testing"
 
 	. "github.com/franela/goblin"
-	. "github.com/tushardhole/go-collections/src/common/wrapers"
+	. "github.com/tushardhole/go-collections/src/wrappers"
 )
 
 func TestPriorityQueueImpl(t *testing.T) {
@@ -56,7 +56,7 @@ func TestPriorityQueueImpl(t *testing.T) {
 
 			pq := NewPriorityQueue(reflect.TypeOf(ComparableInteger{}))
 			err := pq.Add(NewComparableFloat(1.0))
-			g.Assert(err.Error()).Equal("extended type is not the same as the one used to create the queue, expected collections.ComparableInteger, got collections.ComparableFloat")
+			g.Assert(err.Error()).Equal("extended type is not the same as the one used to create the queue, expected wrappers.ComparableInteger, got wrappers.ComparableFloat")
 		})
 	})
 }

@@ -1,7 +1,7 @@
-package collections
+package wrappers
 
 import (
-	. "github.com/tushardhole/go-collections/src/common/behaviours"
+	. "github.com/tushardhole/go-collections/src/behaviours"
 )
 
 type ComparableFloat struct {

@@ -1,12 +1,11 @@
-package collections
+package queues
 
 import (
 	"errors"
 	"fmt"
 	"reflect"
 
-	. "github.com/tushardhole/go-collections/src/common/behaviours"
-	. "github.com/tushardhole/go-collections/src/common/types"
+	. "github.com/tushardhole/go-collections/src/behaviours"
 )
 
 type PriorityQueueImpl struct {
