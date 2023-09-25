@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"reflect"
 
-	. "github.com/tushardhole/go-collections/src/behaviours"
+	. "github.com/tushardhole/go-collections/pkg/behaviours"
 )
 
 type PriorityQueueImpl struct {

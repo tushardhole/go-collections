@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	. "github.com/franela/goblin"
-	. "github.com/tushardhole/go-collections/src/wrappers"
+	. "github.com/tushardhole/go-collections/pkg/wrappers"
 )
 
 func TestPriorityQueueImpl(t *testing.T) {

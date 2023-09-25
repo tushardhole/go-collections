@@ -1,6 +1,6 @@
 package queues
 
-import . "github.com/tushardhole/go-collections/src/behaviours"
+import . "github.com/tushardhole/go-collections/pkg/behaviours"
 
 type PriorityQueue interface {
 	Poll() Comparable
