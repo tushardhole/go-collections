@@ -1,13 +1,14 @@
 package trees
 
 import (
-	. "github.com/tushardhole/go-collections/internal"
+	. "github.com/tushardhole/go-collections/internal/segmentTree"
 )
 
 type SegmentTree interface {
 	MinOfRange(start int, end int) (int, error)
 	MaxOfRange(start int, end int) (int, error)
 	SumOfRange(start int, end int) (int, error)
+	Upadte(index int, value int) (bool, error)
 }
 
 type segmentTreeImpl struct {
@@ -39,11 +40,15 @@ func (st *segmentTreeImpl) MinOfRange(start int, end int) (int, error) {
 }
 
 func (st *segmentTreeImpl) MaxOfRange(start int, end int) (int, error) {
-	return MinOfRangeRecursive(st.root, start, end)
+	return MaxOfRangeRecursive(st.root, start, end)
 }
 
 func (st *segmentTreeImpl) SumOfRange(start int, end int) (int, error) {
-	return MinOfRangeRecursive(st.root, start, end)
+	return SumOfRangeRecursive(st.root, start, end)
+}
+
+func (st *segmentTreeImpl) Upadte(index int, value int) (bool, error) {
+	return UpdateRecursive(st.root, index, value)
 }
 
 func NewSegmentTree(array []int) SegmentTree {

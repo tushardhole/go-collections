@@ -15,12 +15,12 @@ func SumOfRangeRecursive(root *SegmentNode, start int, end int) (int, error) {
 	mid := *root.Start() + (*root.End()-*root.Start())/2
 
 	if end <= mid {
-		return MaxOfRangeRecursive(root.Left(), start, end)
+		return SumOfRangeRecursive(root.Left(), start, end)
 	} else if start > mid {
-		return MaxOfRangeRecursive(root.Right(), start, end)
+		return SumOfRangeRecursive(root.Right(), start, end)
 	} else {
-		leftSum, _ := MaxOfRangeRecursive(root.Left(), start, mid)
-		rightSum, _ := MaxOfRangeRecursive(root.Right(), mid+1, end)
+		leftSum, _ := SumOfRangeRecursive(root.Left(), start, mid)
+		rightSum, _ := SumOfRangeRecursive(root.Right(), mid+1, end)
 		return leftSum + rightSum, nil
 	}
 }
